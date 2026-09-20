@@ -1,0 +1,20 @@
+{
+  "config": {
+    "file": "/.crosspoint/plugins/bookorbit-page-sync/config.json"
+  },
+  "events": {
+    "reader.session": {
+      "request": {
+        "method": "POST",
+        "url": "{cfg.host}/plugin/page-stats",
+        "headers": {
+          "Content-Type": "application/json",
+          "x-auth-user": "{cfg.username}",
+          "x-auth-key": "{cfg.password}"
+        },
+        "body": "{\"deviceId\":\"{cfg.deviceId}\",\"deviceModel\":\"CrossPoint\",\"pluginVersion\":\"1.0.0\",\"books\":[{\"hash\":\"{event.document}\",\"events\":[{\"page\":{event.start_progress_bp},\"startTime\":{event.start_time},\"durationSeconds\":{event.duration_seconds},\"totalPages\":{event.progress_scale}},{\"page\":{event.end_progress_bp},\"startTime\":{event.end_time},\"durationSeconds\":0,\"totalPages\":{event.progress_scale}}]}]}"
+      },
+      "connect": true
+    }
+  }
+}
