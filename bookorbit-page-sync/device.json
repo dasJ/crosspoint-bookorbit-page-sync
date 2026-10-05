@@ -6,7 +6,7 @@
     "reader.session": {
       "request": {
         "method": "POST",
-        "url": "{cfg.host}/plugin/page-stats",
+        "url": "{cfg.apiBase}/plugin/page-stats",
         "headers": {
           "Content-Type": "application/json",
           "x-auth-user": "{cfg.username}",
